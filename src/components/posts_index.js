@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import WPAPI from 'wpapi';
+import PostListItem from './post_list_item';
 
-class PostsIndex extends React.Component {
+class PostsIndex extends Component {
 
   constructor(props) {
     super(props);
@@ -13,19 +13,28 @@ class PostsIndex extends React.Component {
   componentDidMount() {
     this.props.wp.posts().get((err, data) =>{
     }).then((data)=>{
-      this.setState({posts: data})
-      console.log(this);
+      let posts = data.map((post)=>{
+        let postData = {
+          id: post.id,
+          title: post.title.rendered,
+          excerpt: post.excerpt.rendered,
+          link: post.link
+        };
+
+        return PostListItem(postData);
+      });
+      this.setState({posts})
+
     });
   }
 
-  onClick(event) {
-    this.setState({test: 'You clicked me'});
-  }
 
   render() {
 
     return (
-      <div onClick={event=>this.onClick(event)}>{this.state.test}</div>
+      <div>
+        {this.state.posts}
+      </div>
     )
   }
 }
