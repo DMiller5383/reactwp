@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     const wp = new WPAPI({endpoint: 'http://reactwp.loc/wp-json'});
     return (
-      <div>Hello
+      <div>
         <PostsIndex wp={wp} />
       </div>
     );

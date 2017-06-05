@@ -5,13 +5,11 @@ class PostsIndex extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {test: 'yo what up'};
-
-
+    this.state = {posts: []};
   }
 
   componentDidMount() {
-    this.props.wp.posts().get((err, data) =>{
+    this.props.wp.posts().perPage(4).page(2).get((err, data) =>{
     }).then((data)=>{
       let posts = data.map((post)=>{
         let postData = {
