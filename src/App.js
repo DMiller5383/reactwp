@@ -1,4 +1,5 @@
 import PostsIndex from './components/posts_index';
+import PostsPagination from './components/posts_pagination';
 
 import React, { Component } from 'react';
 import WPAPI from 'wpapi';
@@ -10,6 +11,7 @@ class App extends Component {
     return (
       <div>
         <PostsIndex wp={wp} />
+        <PostsPagination />
       </div>
     );
   }
