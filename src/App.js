@@ -11,7 +11,6 @@ class App extends Component {
     return (
       <div>
         <PostsIndex wp={wp} />
-        <PostsPagination />
       </div>
     );
   }
