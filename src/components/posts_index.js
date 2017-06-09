@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PostListItem from './post_list_item';
 import PostsPagination from './posts_pagination';
+import { connect } from 'react-redux';
+import { fetchPosts } from '../actions';
 
 class PostsIndex extends Component {
 
@@ -40,7 +42,7 @@ class PostsIndex extends Component {
   }
 }
 
-// mapStateToProps(state) {
-//   return {posts: state.posts};
-// }
-export default PostsIndex;
+function mapStateToProps(state) {
+ return {posts: state.posts};
+}
+export default connect( mapStateToProps, {fetchPosts}) (PostsIndex);
