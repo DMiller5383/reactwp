@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux';
-import PaginationReducer from './reducer_pagination';
+import PostsReducer from './reducer_posts';
+//import PaginationReducer from './reducer_pagination';
 
+console.log(PostsReducer);
 const rootReducer = combineReducers({
-  pagination: PaginationReducer
+  posts: PostsReducer
 })
 
 export default rootReducer;

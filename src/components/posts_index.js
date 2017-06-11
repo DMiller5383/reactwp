@@ -12,22 +12,9 @@ class PostsIndex extends Component {
   }
 
   componentDidMount() {
+    this.props.fetchPosts();
+    console.log(this.props.posts);
 
-    this.props.wp.posts().perPage(4).page(this.state.page).get((err, data) =>{
-    }).then((data)=>{
-      let posts = data.map((post)=>{
-        let postData = {
-          id: post.id,
-          title: post.title.rendered,
-          excerpt: post.excerpt.rendered,
-          link: post.link
-        };
-
-        return PostListItem(postData);
-      });
-      this.setState({posts})
-
-    });
   }
 
 
