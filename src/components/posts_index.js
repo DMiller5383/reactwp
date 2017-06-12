@@ -12,9 +12,7 @@ class PostsIndex extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchPosts();
-    console.log(this.props.posts);
-
+    let a = this.props.fetchPosts();
   }
 
 

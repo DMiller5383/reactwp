@@ -20,7 +20,7 @@ export default function (state={}, action) {
       }
       let newState = {...state, posts: postsIndex};
       state = newState;
-      return state;
+      return newState;
     default:
       return state;
   }
