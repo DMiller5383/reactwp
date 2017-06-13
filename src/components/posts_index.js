@@ -11,7 +11,7 @@ class PostsIndex extends Component {
   }
 
   componentDidMount() {
-    let a = this.props.fetchPosts();
+    this.props.fetchPosts();
   }
 
 
@@ -32,6 +32,6 @@ class PostsIndex extends Component {
 }
 
 function mapStateToProps(state) {
- return {posts: state.posts};
+ return {posts: state.posts, page: state.page};
 }
 export default connect( mapStateToProps, {fetchPosts}) (PostsIndex);
