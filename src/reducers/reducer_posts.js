@@ -11,15 +11,10 @@ export default function (state={}, action) {
           excerpt: post.excerpt.rendered,
           link: post.link
         }
+
         return PostListItem(postData);
       });
-      let paging = action.payload._paging;
-      let postsIndex = {
-        posts,
-        paging
-      }
-      let newState = {...state, posts: postsIndex};
-      state = newState;
+      let newState = posts;
       return newState;
     default:
       return state;

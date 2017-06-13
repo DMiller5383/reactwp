@@ -8,7 +8,6 @@ class PostsIndex extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {posts: [], page: 1};
   }
 
   componentDidMount() {
@@ -17,10 +16,10 @@ class PostsIndex extends Component {
 
 
   render() {
-
+    console.log(this.props.posts);
     return (
       <div>
-        {this.state.posts}
+        {this.props.posts}
         <PostsPagination />
       </div>
     )

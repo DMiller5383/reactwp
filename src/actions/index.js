@@ -41,7 +41,6 @@ const wp = new WPAPI({endpoint: 'http://reactwp.loc/wp-json'});
 
 export function fetchPosts() {
   const result =  wp.posts().perPage(4).get();
-  console.log(result);
     const action = {
       type: FETCH_POSTS,
       payload: result
