@@ -14,8 +14,7 @@ export default function (state={}, action) {
 
         return PostListItem(postData);
       });
-      let newState = posts;
-      return newState;
+      return posts;
     default:
       return state;
   }

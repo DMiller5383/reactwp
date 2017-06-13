@@ -16,13 +16,18 @@ class PostsIndex extends Component {
 
 
   render() {
-    console.log(this.props.posts);
-    return (
-      <div>
-        {this.props.posts}
-        <PostsPagination />
-      </div>
-    )
+    if(Object.keys(this.props.posts).length === 0 && this.props.posts.constructor === Object) {
+      return (
+        <div>Loading...</div>
+      )
+    } else {
+      return (
+        <div>
+          {this.props.posts}
+          <PostsPagination />
+        </div>
+      )
+    }
   }
 }
 
