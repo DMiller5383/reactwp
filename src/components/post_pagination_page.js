@@ -1,7 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-const PostPaginationPage = (page) => {
+const PostPaginationPage = (args) => {
   return (
-    <li key={page}>{page}</li>
+    <li key={args.page}>
+      <a href="#" onClick={args.click}>{args.page}</a>
+    </li>
   )
 }
+
+export default PostPaginationPage;

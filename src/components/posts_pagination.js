@@ -1,21 +1,30 @@
 import React, { Component } from 'react';
 import { fetchPosts } from '../actions';
 import {connect} from 'react-redux';
-import {PostPaginationPage} from './post_pagination_page'
+import PostPaginationPage from './post_pagination_page';
 import _ from 'lodash';
 
 class PostsPagination extends Component {
   componentDidMount() {
     return true;
   }
+
+  handleClick(num) {
+    return (num)=> {
+      console.log(num);
+    }
+  }
   render() {
     if(_.isEmpty(this.props.totalPages)) {
-      
+      return;
     } else {
-      console.log('hello');
       let pages = [];
       for(let i=1; i<this.props.totalPages; i++){
-        let page = new PostPaginationPage(i);
+        let args = {
+          click: this.handleClick(i),
+          page: i
+        }
+        let page = new PostPaginationPage(args);
         pages.push(page);
       }
       return(
