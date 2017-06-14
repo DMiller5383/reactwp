@@ -10,8 +10,8 @@ class PostsPagination extends Component {
   }
 
   handleClick(num) {
-    return (num)=> {
-
+    return (e)=> {
+      e.preventDefault();
       console.log(num);
     }
   }
@@ -22,7 +22,7 @@ class PostsPagination extends Component {
       let pages = [];
       for(let i=1; i<this.props.totalPages; i++){
         let args = {
-          click: this.handleClick(i),
+          click: this.handleClick,
           page: i
         }
         let page = new PostPaginationPage(args);

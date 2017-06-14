@@ -3,7 +3,7 @@ import React from 'react';
 const PostPaginationPage = (args) => {
   return (
     <li key={args.page}>
-      <a href="#" onClick={args.click}>{args.page}</a>
+      <a href="#" onClick={args.click(4)}>{args.page}</a>
     </li>
   )
 }
