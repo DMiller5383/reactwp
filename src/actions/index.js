@@ -9,7 +9,7 @@ export const FETCH_POSTS = 'fetch_posts';
 
 const wp = new WPAPI({endpoint: 'http://reactwp.loc/wp-json'});
 
-export function fetchPosts() {
+export function fetchPosts(page=1) {
   const result =  wp.posts().perPage(4).get();
     const action = {
       type: FETCH_POSTS,

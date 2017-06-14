@@ -3,6 +3,7 @@ import PostListItem from './post_list_item';
 import PostsPagination from './posts_pagination';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions';
+import _ from 'lodash';
 
 class PostsIndex extends Component {
 
@@ -11,12 +12,13 @@ class PostsIndex extends Component {
   }
 
   componentDidMount() {
+
     this.props.fetchPosts();
   }
 
 
   render() {
-    if(Object.keys(this.props.posts).length === 0 && this.props.posts.constructor === Object) {
+    if(_.isEmpty(this.props.posts)) {
       return (
         <div>Loading...</div>
       )
@@ -32,6 +34,6 @@ class PostsIndex extends Component {
 }
 
 function mapStateToProps(state) {
- return {posts: state.posts, page: state.page};
+ return {posts: state.posts, pages: state.pages };
 }
 export default connect( mapStateToProps, {fetchPosts}) (PostsIndex);
