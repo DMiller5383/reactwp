@@ -11,6 +11,7 @@ class PostsPagination extends Component {
 
   handleClick(num) {
     return (num)=> {
+
       console.log(num);
     }
   }
