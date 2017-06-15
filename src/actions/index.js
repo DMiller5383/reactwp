@@ -5,8 +5,6 @@ import promiseMiddleWare from 'redux-promise';
 export const CHANGE_PAGE = 'change_page';
 export const FETCH_POSTS = 'fetch_posts';
 
-
-
 const wp = new WPAPI({endpoint: 'http://reactwp.loc/wp-json'});
 
 export function fetchPosts(page=1) {
@@ -16,4 +14,12 @@ export function fetchPosts(page=1) {
       payload: result
     }
     return action;
+}
+
+export function changePage(page) {
+  const action = {
+    type: CHANGE_PAGE,
+    payload: page
+  }
+  return action;
 }
