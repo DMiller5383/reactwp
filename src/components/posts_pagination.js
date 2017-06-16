@@ -5,9 +5,6 @@ import PostPaginationPage from './post_pagination_page';
 import _ from 'lodash';
 
 class PostsPagination extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
     return true;
@@ -22,7 +19,7 @@ class PostsPagination extends Component {
   }
   render() {
     if(_.isEmpty(this.props.totalPages)) {
-      return;
+      return(<div></div>);
     } else {
       let pages = [];
       for(let i=1; i<this.props.totalPages; i++){

@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
-import PostListItem from './post_list_item';
-import PostsPagination from './posts_pagination';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions';
 import _ from 'lodash';
 
 class PostsIndex extends Component {
-
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
     this.props.fetchPosts();
@@ -25,7 +19,6 @@ class PostsIndex extends Component {
       return (
         <div>
           {this.props.posts}
-          <PostsPagination />
         </div>
       )
     }
