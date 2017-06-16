@@ -13,10 +13,11 @@ class PostsPagination extends Component {
     return true;
   }
 
-  handleClick(num) {
+  handleClick(page) {
     return (e)=> {
       e.preventDefault();
-      this.props.changePage();
+      this.props.changePage(page);
+      this.props.fetchPosts(page);
     }
   }
   render() {
@@ -27,7 +28,8 @@ class PostsPagination extends Component {
       for(let i=1; i<this.props.totalPages; i++){
         let args = {
           click: this.handleClick.bind(this),
-          page: i
+          page: i,
+          activePage: this.props.activePage
         }
         let page = new PostPaginationPage(args);
         pages.push(page);
@@ -46,4 +48,4 @@ class PostsPagination extends Component {
 function mapStateToProps(state) {
   return {totalPages: state.totalPages, activePage: state.activePage }
 }
-export default connect(mapStateToProps, {changePage}) (PostsPagination);
+export default connect(mapStateToProps, {changePage, fetchPosts}) (PostsPagination);

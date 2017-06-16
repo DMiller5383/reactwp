@@ -8,7 +8,7 @@ export const FETCH_POSTS = 'fetch_posts';
 const wp = new WPAPI({endpoint: 'http://reactwp.loc/wp-json'});
 
 export function fetchPosts(page=1) {
-  const result =  wp.posts().perPage(4).get();
+  const result =  wp.posts().perPage(4).page(page).get();
     const action = {
       type: FETCH_POSTS,
       payload: result
@@ -17,6 +17,7 @@ export function fetchPosts(page=1) {
 }
 
 export function changePage(page) {
+  //const result = wp.posts().perPage(4).page(page)
   const action = {
     type: CHANGE_PAGE,
     payload: page
