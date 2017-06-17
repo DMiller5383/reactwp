@@ -6,7 +6,11 @@ import _ from 'lodash';
 class PostsIndex extends Component {
 
   componentDidMount() {
-    this.props.fetchPosts();
+    let args = {
+      page: this.props.activePage,
+      category: this.props.activeCategory
+    }
+    this.props.fetchPosts(args);
   }
 
 
@@ -26,6 +30,6 @@ class PostsIndex extends Component {
 }
 
 function mapStateToProps(state) {
- return {posts: state.posts };
+ return {posts: state.posts, activePage: state.activePage, activeCategory: state.activeCategory };
 }
 export default connect( mapStateToProps, {fetchPosts}) (PostsIndex);

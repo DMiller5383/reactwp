@@ -14,7 +14,11 @@ class PostsPagination extends Component {
     return (e)=> {
       e.preventDefault();
       this.props.changePage(page);
-      this.props.fetchPosts(page);
+      let args = {
+        page: this.props.activePage,
+        category: this.props.activeCategory
+      }
+      this.props.fetchPosts(args);
     }
   }
   render() {
@@ -43,6 +47,6 @@ class PostsPagination extends Component {
 }
 
 function mapStateToProps(state) {
-  return {totalPages: state.totalPages, activePage: state.activePage }
+  return {totalPages: state.totalPages, activePage: state.activePage, activeCategory: state.activeCategory }
 }
 export default connect(mapStateToProps, {changePage, fetchPosts}) (PostsPagination);
