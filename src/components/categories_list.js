@@ -10,15 +10,20 @@ class CategoriesList extends Component {
     this.props.fetchCategories();
   }
 
-  getCategoryListItems() {
-    console.log(this.props.categories);
-    return this.props.categories;
-  }
   render() {
     if(_.isEmpty(this.props.categories)) {
       return(<div></div>);
     } else {
       let categoryListItems = this.props.categories.map(function(category){
+        let handleClick = (categoryId) => {
+          console.log(this);
+          return (e) => {
+            e.preventDefault();
+            console.log(categoryId);
+          }
+        }
+        category.click = handleClick(category.id);
+        console.log(category);
         return new CategoryListItem(category);
       });
       return(
