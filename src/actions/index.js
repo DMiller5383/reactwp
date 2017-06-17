@@ -15,7 +15,7 @@ export function fetchPosts(page=1) {
 }
 
 export function fetchCategories() {
-  const result = wp.categories().get();
+  const result = wp.categories().get()
   const action = {
     type: FETCH_CATEGORIES,
     payload: result
