@@ -15,7 +15,7 @@ class PostsPagination extends Component {
       e.preventDefault();
       this.props.changePage(page);
       let args = {
-        page: this.props.activePage,
+        page: page,
         category: this.props.activeCategory
       }
       this.props.fetchPosts(args);

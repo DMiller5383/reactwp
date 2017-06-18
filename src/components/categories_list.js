@@ -19,13 +19,13 @@ class CategoriesList extends Component {
         let handleClick = (categoryId) => {
           return (e) => {
             e.preventDefault();
-            self.props.setActiveCategory(categoryId);
+            let test = self.props.setActiveCategory(categoryId);
             let args = {
               page: self.props.activePage,
-              category: self.props.activeCategory
+              category: categoryId
             }
-            console.log(args);
             self.props.fetchPosts(args);
+
           }
         }
         category.click = handleClick(category.id);

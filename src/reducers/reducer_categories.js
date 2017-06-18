@@ -1,5 +1,4 @@
 import { FETCH_CATEGORIES } from '../actions';
-
 export default function(state={}, action) {
   switch(action.type) {
     case FETCH_CATEGORIES:
@@ -12,6 +11,7 @@ export default function(state={}, action) {
         return categoryData;
       });
       return categories;
+
     default:
       return state;
   }

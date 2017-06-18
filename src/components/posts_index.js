@@ -7,8 +7,8 @@ class PostsIndex extends Component {
 
   componentDidMount() {
     let args = {
-      page: this.props.activePage,
-      category: this.props.activeCategory
+      page: 1,
+      category: []
     }
     this.props.fetchPosts(args);
   }
