@@ -3,6 +3,7 @@ export const CHANGE_PAGE = 'change_page';
 export const FETCH_POSTS = 'fetch_posts';
 export const FETCH_CATEGORIES = 'fetch_categories';
 export const SET_ACTIVE_CATEGORY = 'set_active_category';
+export const GET_POST = 'get_post';
 
 const wp = new WPAPI({endpoint: 'http://reactwp.loc/wp-json'});
 
@@ -38,4 +39,13 @@ export function setActiveCategory(category_id) {
     payload: category_id
   }
   return action;
+}
+
+export function getPost(slug) {
+  const result = wp.posts().id(79).get();
+    const action = {
+      type: GET_POST,
+      payload: result
+    }
+    return action;
 }
