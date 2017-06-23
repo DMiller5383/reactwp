@@ -4,17 +4,25 @@ import { getPost } from '../actions'
 
 class PostSingle extends Component {
   componentDidMount() {
-    let post = this.props.getPost();
-    console.log(post);
+    this.props.getPost();
   }
 
   render() {
+    let post = this.props.post[0];
+    console.log(post);
+    if(post == null) {
+      return (<div>'Loading Post...'</div>);
+    } else {
 
-    return (
-      <div>
-        <h3>This is the post content here</h3>
-      </div>
-    )
+      return (
+
+        <div>
+          <h2>{post.title.rendered}</h2>
+          <p>{post.content.rendered}</p>
+        </div>
+      )
+    }
+
 
   }
 }

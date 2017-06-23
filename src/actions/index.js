@@ -42,7 +42,7 @@ export function setActiveCategory(category_id) {
 }
 
 export function getPost(slug) {
-  const result = wp.posts().id(79).get();
+  const result = wp.posts().slug('id-velit-sit-quibusdam-facilis').get();
     const action = {
       type: GET_POST,
       payload: result
