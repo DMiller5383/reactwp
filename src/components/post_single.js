@@ -4,12 +4,12 @@ import { getPost } from '../actions'
 
 class PostSingle extends Component {
   componentDidMount() {
-    this.props.getPost();
+    let slug = this.props.match.slug;
+    this.props.getPost(slug);
   }
 
   render() {
     let post = this.props.post[0];
-    console.log(post);
     if(post == null) {
       return (<div>'Loading Post...'</div>);
     } else {
