@@ -9,14 +9,14 @@ class PostNew extends Component {
   }
 
   onSubmit(values) {
-    const { handleSubmit } = this.props;
-    console.log(handleSubmit);
+    console.log(values);
   }
 
   render() {
+    const { handleSubmit } = this.props;
     return (
       <div>
-        <form onSubmit={this.onSubmit(this.props)}>
+        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <div>
             <label htmlFor="title">Title</label>
             <Field name="title" component="input" type="text" />
