@@ -4,6 +4,7 @@ export const FETCH_POSTS = 'fetch_posts';
 export const FETCH_CATEGORIES = 'fetch_categories';
 export const SET_ACTIVE_CATEGORY = 'set_active_category';
 export const GET_POST = 'get_post';
+export const NEW_POST = 'new_post';
 
 const wp = new WPAPI({endpoint: 'http://reactwp.loc/wp-json'});
 
@@ -48,4 +49,17 @@ export function getPost(slug) {
       payload: result
     }
     return action;
+}
+
+export function newPost(postData) {
+  const result = wp.posts().create({
+      title: postData.title,
+      content: postData.content,
+      status: 'publish'
+  });
+  const action = {
+    type: NEW_POST,
+    payload: result
+  }
+  return action;
 }
