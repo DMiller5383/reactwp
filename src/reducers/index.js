@@ -5,6 +5,7 @@ import TotalPagesReducer from './reducer_total_pages';
 import CategoriesReducer from './reducer_categories';
 import ActiveCategoryReducer from './reducer_active_category';
 import PostReducer from './reducer_post';
+import { reducer as formReducer } from 'redux-form';
 
 const rootReducer = combineReducers({
   posts: PostsReducer,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   totalPages: TotalPagesReducer,
   categories: CategoriesReducer,
   activeCategory: ActiveCategoryReducer,
-  post: PostReducer
+  post: PostReducer,
+  form: formReducer
 })
 
 export default rootReducer;

@@ -6,7 +6,7 @@ export const SET_ACTIVE_CATEGORY = 'set_active_category';
 export const GET_POST = 'get_post';
 export const NEW_POST = 'new_post';
 
-const wp = new WPAPI({endpoint: 'http://reactwp.loc/wp-json'});
+const wp = new WPAPI({endpoint: 'http://reactwp.loc/wp-json', username: '', password: ''});
 
 export function fetchPosts(args) {
   const result =  wp.posts().perPage(4).categories(args.category).page(args.page).get();

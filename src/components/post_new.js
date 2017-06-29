@@ -9,8 +9,11 @@ class PostNew extends Component {
   }
 
   onSubmit(values) {
+    this.props.newPost(values);
     console.log(values);
   }
+
+
 
   render() {
     const { handleSubmit } = this.props;
@@ -20,6 +23,10 @@ class PostNew extends Component {
           <div>
             <label htmlFor="title">Title</label>
             <Field name="title" component="input" type="text" />
+          </div>
+          <div>
+            <label htmlFor="content">Content</label>
+            <Field name="Content" component="textarea" type="text" />
           </div>
           <button type="submit">Submit</button>
         </form>
@@ -31,7 +38,7 @@ class PostNew extends Component {
 }
 
 function validate(values) {
-    return values;
+    return {};
 }
 
 export default reduxForm({
