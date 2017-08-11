@@ -6,22 +6,7 @@ import PostsPagination from './components/posts_pagination';
 import CategoriesList from './components/categories_list';
 import React, { Component } from 'react';
 import './App.css';
-//
-// class App extends Component {
-//   render() {
-//
-//     return (
-//       <div>
-//         const App = () => (
-//           <div>
-//             Hello World
-//           </div>
-//         )
-//       </div>
-//     );
-//   }
-// }
-//
+
 const App = () => (
   <div>
     <Header />

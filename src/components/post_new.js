@@ -10,7 +10,6 @@ class PostNew extends Component {
   }
 
   onSubmit(values) {
-    //this.props.newPost(values);
     console.log(values);
   }
 
