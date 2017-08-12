@@ -5,6 +5,7 @@ import Main from './components/main';
 import PostsPagination from './components/posts_pagination';
 import CategoriesList from './components/categories_list';
 import React, { Component } from 'react';
+import { CSSTransitionGroup } from 'react-transition-group' // ES6
 import './App.css';
 //
 // class App extends Component {
@@ -25,7 +26,15 @@ import './App.css';
 const App = () => (
   <div>
     <Header />
+    <CSSTransitionGroup
+      transitionName="example"
+
+  transitionAppear={true}
+  transitionAppearTimeout={2000}
+  transitionEnter={false}
+  transitionLeave={false}>
     <Main />
+    </CSSTransitionGroup>
     <Footer />
   </div>
 )

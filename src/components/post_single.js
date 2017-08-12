@@ -27,7 +27,8 @@ class PostSingle extends Component {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
+  console.log(ownProps);
   return { post: state.post };
 }
 

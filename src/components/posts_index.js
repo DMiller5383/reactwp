@@ -22,7 +22,9 @@ class PostsIndex extends Component {
     } else {
       return (
         <div>
+
           {this.props.posts}
+
         </div>
       )
     }

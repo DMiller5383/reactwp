@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { newPost } from '../actions';
 import _ from 'lodash';
 
-class PostNew extends Component {
+export class PostNew extends Component {
   renderField(field) {
 
   }
@@ -49,7 +49,7 @@ class PostNew extends Component {
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Field label="Title" name="title" component={this.renderInput} />
           <Field label="Content" name="content" component={this.renderTextArea} />
-          <Field label="Categories" name="categories" component={this.renderSelect} />
+          <Field label="Categories" name="categories" className="categories-dropdown" component={this.renderSelect} />
           <button type="submit">Submit</button>
         </form>
       </div>
