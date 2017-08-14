@@ -5,6 +5,11 @@ import { newPost } from '../actions';
 import _ from 'lodash';
 
 export class PostNew extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+
   renderField(field) {
 
   }
@@ -33,10 +38,20 @@ export class PostNew extends Component {
   }
 
   renderSelect(field) {
-    let option = <option value="test">Test</option>
+    let categories = [];
+    if(!typeof this.props.categories === 'undefined') {
+      categories = this.props.categories;
+    }
+
+    let options = [];
+    if(!_.isEmpty(categories)) {
+      options = categories.map((category)=>{
+        return(<option id={category.id} value={category.id}>category.title</option>);
+      })
+    }
     return (
       <div className="input-row">
-        <select>{option}</select>
+        <select className={field.className}>{options}</select>
       </div>
     )
   }
@@ -48,7 +63,7 @@ export class PostNew extends Component {
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Field label="Title" name="title" component={this.renderInput} />
           <Field label="Content" name="content" component={this.renderTextArea} />
-          <Field label="Categories" name="categories" className="categories-dropdown" component={this.renderSelect} />
+          <Field label="Categories" name="categories" className="categories-dropdown" component={this.renderSelect.bind(this)} />
           <button type="submit">Submit</button>
         </form>
       </div>
@@ -69,6 +84,11 @@ function validate(values) {
     }
     //console.log(errors);
     return errors;
+}
+
+
+function mapStateToProps(state) {
+  return {categories: state.categories};
 }
 
 export default reduxForm({

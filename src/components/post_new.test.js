@@ -8,20 +8,23 @@ import configureStore from 'redux-mock-store';
 const mockStore=configureStore();
 
 describe('PostNew', ()=>{
-  let store, postNew, wrapper;
+  let store, postNew, wrapper, categories;
   beforeEach(()=>{
     store=mockStore();
-      postNew = <PostNew handleSubmit={()=>{console.log('asdf')}}/>
+      let category1 = {id: 1, value: "Category1"};
+      let category2 = {id: 2, value: "Category2"};
+      let categories = [category1, category2];
+      postNew = <PostNew handleSubmit={()=>{ return true}} categories={categories}/>
       wrapper = shallow(postNew);
   });
 
-  it('does something', ()=>{
+  it('has the right amount of form fields', ()=>{
+    let children = wrapper.find('form').children();
+    expect(children.length).toBe(4);
+  });
 
-
-    console.log(wrapper.find('form').length);
-    //console.log(postNew);
-    //console.log(postNew.dive());
-    expect(5).toBe(5);
-
+  it('properly populates form categories', ()=> {
+    let select = wrapper.find('.categories-dropdown');
+    console.log(wrapper.find('.categories-dropdown').children());
   });
 })
