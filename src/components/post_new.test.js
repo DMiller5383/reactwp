@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
-import {Field, reduxForm} from 'redux-form';
-import {shallow} from 'enzyme';
+//import {reduxForm} from 'redux-form';
+import {shallow, mount} from 'enzyme';
 import {PostNew} from './post_new';
 import renderer from 'react-test-renderer';
 import ReactTestUtils from 'react-dom/test-utils'
 import configureStore from 'redux-mock-store';
+import { Field, reduxForm } from 'redux-form';
+
 const mockStore=configureStore();
 
 describe('PostNew', ()=>{
@@ -15,7 +17,7 @@ describe('PostNew', ()=>{
       let category2 = {id: 2, value: "Category2"};
       let categories = [category1, category2];
       postNew = <PostNew handleSubmit={()=>{ return true}} categories={categories}/>
-      wrapper = shallow(postNew);
+      wrapper = shallow(<PostNew handleSubmit={()=>{ return true}} categories={categories}/>);
   });
 
   it('has the right amount of form fields', ()=>{
@@ -23,8 +25,13 @@ describe('PostNew', ()=>{
     expect(children.length).toBe(4);
   });
 
-  it('properly populates form categories', ()=> {
+  it('renders the categories dropdown', ()=> {
     let select = wrapper.find('.categories-dropdown');
-    console.log(wrapper.find('.categories-dropdown').children());
+    expect(select.length).toBe(1);
+  });
+
+  it('renders the categories in the categories dropdown', ()=>{
+    let form = wrapper.find('form').children();
+    let select = form.find('.categories-dropdown');
   });
 })
