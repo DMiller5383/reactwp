@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { newPost } from '../actions';
-import {select} from './select';
+import {FormSelect} from './form_select';
 import _ from 'lodash';
 
 export class PostNew extends Component {
@@ -63,7 +63,7 @@ export class PostNew extends Component {
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           <Field label="Title" name="title" component={this.renderInput} />
           <Field label="Content" name="content" component={this.renderTextArea} />
-          <Field label="Categories" name="categories" className="categories-dropdown" component={select} />
+          <Field label="Categories" name="categories" className="categories-dropdown" component={FormSelect} />
           <button type="submit">Submit</button>
         </form>
       </div>
