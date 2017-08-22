@@ -8,7 +8,7 @@ export const FormSelect = (field) => {
   }
 
   let selectOptions = options.map((option)=>{
-    return(<option key={option.id} value={option.id}>option.title</option>);
+    return(<option key={option.id} value={option.id}>{option.title}</option>);
   })
 
   return (

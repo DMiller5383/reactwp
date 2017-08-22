@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {FormSelect} from './form_select';
-import {shallow} from 'enzyme';
+import {shallow, render, wrapper} from 'enzyme';
 describe('form_select.js', ()=>{
   let wrapper;
   beforeEach(()=>{
@@ -24,9 +24,17 @@ describe('form_select.js', ()=>{
     expect(select).toBe(1);
   });
 
-  it('it renders options correctly', ()=>{
+  it('it renders option values correctly', ()=>{
+    let option1 = wrapper.find('[value=1]').length;
+    let option2 = wrapper.find('[value=2]').length;
+    let option3 = wrapper.find('[value=3]').length;
 
-    expect(1).toBe(1);
+    expect(option1 + option2 + option3).toBe(3);
+  });
+
+  it('it renders option values correctly', ()=>{
+    let option1 = wrapper.find('[value=1]').text();
+    expect(option1).toBe('title1');
   });
 
 
