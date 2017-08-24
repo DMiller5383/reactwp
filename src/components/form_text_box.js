@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import _ from 'lodash';
 
 
-export const formTextBox  = (field) {
+export const FormTextBox  = (field)=> {
+  
   return(
     <div className="input-row">
       <input {...field.input} type="text"/>

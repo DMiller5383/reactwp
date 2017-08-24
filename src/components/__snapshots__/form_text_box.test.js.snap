@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`form_text_box.js renders correctly 1`] = `
+<div
+  className="input-row"
+>
+  <input
+    name="title"
+    type="text"
+  />
+</div>
+`;
