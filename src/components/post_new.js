@@ -3,6 +3,8 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { newPost } from '../actions';
 import {FormSelect} from './form_select';
+import {FormTextBox} from './form_text_box';
+import {FormTextArea} from './form_text_area';
 import _ from 'lodash';
 
 export class PostNew extends Component {
@@ -11,21 +13,8 @@ export class PostNew extends Component {
     super(props);
   }
 
-  renderField(field) {
-
-  }
-
   onSubmit(values) {
     console.log(values);
-  }
-
-  renderInput(field) {
-    return(
-      <div className="input-row">
-        <input {...field.input} type="text"/>
-        {field.meta.touched && field.meta.error && <span className="error">{field.meta.error}</span>}
-      </div>
-    )
   }
 
   renderTextArea(field) {
@@ -42,8 +31,8 @@ export class PostNew extends Component {
     return (
       <div>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-          <Field label="Title" name="title" component={this.renderInput} />
-          <Field label="Content" name="content" component={this.renderTextArea} />
+          <Field label="Title" name="title" component={FormTextBox} />
+          <Field label="Content" name="content" component={FormTextArea} />
           <Field label="Categories" name="categories" className="categories-dropdown" component={FormSelect} />
           <button type="submit">Submit</button>
         </form>

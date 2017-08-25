@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {FormTextBox} from './form_text_box';
+import {FormTextArea} from './form_text_area';
 import {shallow, render, wrapper} from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-describe('form_text_box.js', ()=>{
+describe('form_text_Area.js', ()=>{
   let field =  {
     input: {
       name: 'title'
@@ -33,31 +33,31 @@ describe('form_text_box.js', ()=>{
       error: 'There was an error.'
     },
   }
-  let textBox;
-  let textBoxWithErrors;
-  let textBoxUntouched;
+  let textArea;
+  let textAreaWithErrors;
+  let textAreaUntouched;
   beforeEach(()=>{
-    textBox = shallow(<FormTextBox input={field.input} meta={field.meta}  />);
-    textBoxWithErrors = shallow(<FormTextBox input={fieldWithErrors.input} meta={fieldWithErrors.meta} />);
-    textBoxUntouched = shallow(<FormTextBox input={fieldErrorsUntouched.input} meta={fieldErrorsUntouched.meta} />);
+    textArea = shallow(<FormTextArea input={field.input} meta={field.meta}  />);
+    textAreaWithErrors = shallow(<FormTextArea input={fieldWithErrors.input} meta={fieldWithErrors.meta} />);
+    textAreaUntouched = shallow(<FormTextArea input={fieldErrorsUntouched.input} meta={fieldErrorsUntouched.meta} />);
 
   })
   it('renders correctly', ()=>{
-    expect(toJson(textBox)).toMatchSnapshot();
+    expect(toJson(textArea)).toMatchSnapshot();
   });
 
-  it('renders a textbox', ()=>{
-    let textBoxCount = textBox.find('input').length;
-    expect(textBoxCount).toBe(1);
+  it('renders a textArea', ()=>{
+    let textAreaCount = textArea.find('textarea').length;
+    expect(textAreaCount).toBe(1);
   });
 
   it('will display errors if there are any', ()=>{
-    let error = textBoxWithErrors.find('.error');
+    let error = textAreaWithErrors.find('.error');
     expect(error.text()).toBe('There was an error.');
   });
 
   it('will not display errors if touched is false', ()=>{
-    let error = textBoxUntouched.find('.error');
+    let error = textAreaUntouched.find('.error');
     expect(error.length).toBe(0);
   });
 });

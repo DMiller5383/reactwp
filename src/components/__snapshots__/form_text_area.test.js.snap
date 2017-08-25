@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`form_text_Area.js renders correctly 1`] = `
+<div
+  className="input-row"
+>
+  <textarea
+    name="title"
+  />
+</div>
+`;
