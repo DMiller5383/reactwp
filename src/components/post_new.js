@@ -9,10 +9,6 @@ import _ from 'lodash';
 
 export class PostNew extends Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   onSubmit(values) {
     console.log(values);
   }
@@ -28,6 +24,7 @@ export class PostNew extends Component {
 
   render() {
     const { handleSubmit } = this.props;
+
     return (
       <div>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
