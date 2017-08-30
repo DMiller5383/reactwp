@@ -24,13 +24,17 @@ export class PostNew extends Component {
 
   render() {
     const { handleSubmit } = this.props;
-
+    let fields = this.props.fields.map((field)=>{
+      return <Field label={field.label} name={field.name} component={field.component} />;
+    });
     return (
       <div>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-          <Field label="Title" name="title" component={FormTextBox} />
+          {fields}
+          {/*<Field label="Title" name="title" component={FormTextBox} />
           <Field label="Content" name="content" component={FormTextArea} />
-          <Field label="Categories" name="categories" className="categories-dropdown" component={FormSelect} />
+          <Field label="Categories" name="categories" className="categories-dropdown" component={FormSelect} /> */}
+
           <button type="submit">Submit</button>
         </form>
       </div>

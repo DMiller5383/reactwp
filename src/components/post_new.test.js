@@ -10,19 +10,20 @@ import { Field, reduxForm } from 'redux-form';
 const mockStore=configureStore();
 
 describe('PostNew', ()=>{
-   let store, wrapper;
+   let store, wrapper, handleSubmit;
    beforeEach(()=>{
      store=mockStore();
 
-     const handleSubmit = function(click) {
-       click()
-     }
+      handleSubmit = fn => fn;
 
      wrapper = shallow(<PostNew handleSubmit={handleSubmit}/>);
    });
 
    it('does something', ()=>{
-     wrapper.find('button').simulate('click');
+     let input = wrapper.find('input');
+     console.log(input.length);
+     wrapper.find('form').simulate('submit');
+
    });
 
 })
