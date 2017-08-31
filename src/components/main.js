@@ -4,14 +4,33 @@ import PostsIndex from './posts_index';
 import PostSingle from './post_single';
 import PostNew from './post_new';
 import {FormTextBox} from './form_text_box';
+import {FormTextArea} from './form_text_area';
+import {FormSelect} from './form_select';
 
 const Main = () => {
   let fields = [
     {
+      key: 'title',
       label: 'Title',
       name: 'title',
-      component: FormTextBox
+      component: FormTextBox,
+      value: 'asdf'
+    },
+    {
+      key: 'content',
+      label: 'Content',
+      name: 'content',
+      component: FormTextArea
+    },
+    {
+      key: 'categories',
+      label: 'Categories',
+      name: 'categories',
+      className: 'categories-dropdown',
+      component: FormSelect
+
     }
+
   ]
 
 

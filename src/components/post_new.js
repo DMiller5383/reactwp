@@ -10,31 +10,17 @@ import _ from 'lodash';
 export class PostNew extends Component {
 
   onSubmit(values) {
-    console.log(values);
-  }
-
-  renderTextArea(field) {
-    return(
-      <div className="input-row">
-        <textarea {...field.input}></textarea>
-        {field.meta.touched && field.meta.error && <span className="error">{field.meta.error}</span>}
-      </div>
-    )
   }
 
   render() {
     const { handleSubmit } = this.props;
     let fields = this.props.fields.map((field)=>{
-      return <Field label={field.label} name={field.name} component={field.component} />;
+      return <Field key={field.key} label={field.label} name={field.name} component={field.component} value={field.value} />;
     });
     return (
       <div>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
           {fields}
-          {/*<Field label="Title" name="title" component={FormTextBox} />
-          <Field label="Content" name="content" component={FormTextArea} />
-          <Field label="Categories" name="categories" className="categories-dropdown" component={FormSelect} /> */}
-
           <button type="submit">Submit</button>
         </form>
       </div>
