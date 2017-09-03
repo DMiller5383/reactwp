@@ -10,6 +10,7 @@ import _ from 'lodash';
 export class PostNew extends Component {
 
   onSubmit(values) {
+    this.props.newPost(values);
   }
 
   render() {
