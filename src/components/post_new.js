@@ -10,7 +10,10 @@ import _ from 'lodash';
 export class PostNew extends Component {
 
   onSubmit(values) {
-    this.props.newPost(values);
+    let errors = this.props.validate(values);
+    if(_.isEmpty(errors)) {
+      this.props.newPost(values);
+    }
   }
 
   render() {
@@ -38,7 +41,7 @@ function validate(values) {
     if(_.isEmpty(values.content)) {
       errors.content = 'Please enter some content';
     }
-    //console.log(errors);
+
     return errors;
 }
 

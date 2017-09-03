@@ -22,7 +22,6 @@ describe('PostNew', ()=>{
          label: 'Title',
          name: 'title',
          component: FormTextBox,
-         value: 'asdf',
        },
        {
          key: 'content',
@@ -62,16 +61,48 @@ describe('PostNew', ()=>{
    });
 
 
-   it('expect newPost action creator to have been called', ()=>{
+   it('expects newPost action creator to have been called', ()=>{
      let newPost = jest.fn();
+     let validate = fn => {
+       return {};
+     }
      let handleSubmitFn = fn => {
 					return function() {
 						promiseReturnedFromFormHandler = fn(arguments)
 					}
 			}
-     wrapper = shallow(<PostNew handleSubmit={handleSubmitFn} fields={fields} newPost={newPost}/>);
+     wrapper = shallow(<PostNew handleSubmit={handleSubmitFn} fields={fields} newPost={newPost} validate={validate}/>);
      wrapper.find('form').simulate('submit');
      expect(newPost).toHaveBeenCalled();
    });
 
+
+   it('expects validate to have been called', ()=>{
+
+     let newPost = () => { return true }
+     let handleSubmitFn = fn => {
+					return function() {
+						promiseReturnedFromFormHandler = fn(arguments)
+					}
+			}
+      let validate = jest.fn();
+     wrapper = shallow(<PostNew handleSubmit={handleSubmitFn} fields={fields} newPost={newPost} validate={validate}/>);
+     wrapper.find('form').simulate('submit');
+     expect(validate).toHaveBeenCalled();
+   })
+
+   it('expect it to have four children (three fields plus a submit btn)', ()=>{
+
+     let newPost = () => { return true }
+     let handleSubmitFn = fn => {
+					return function() {
+						promiseReturnedFromFormHandler = fn(arguments)
+					}
+			}
+      let validate = jest.fn();
+     wrapper = shallow(<PostNew handleSubmit={handleSubmitFn} fields={fields} newPost={newPost} validate={validate}/>);
+     let children = wrapper.find('form').children();
+     expect(children.length).toBe(4);
+
+   })
 })

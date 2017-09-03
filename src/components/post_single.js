@@ -22,13 +22,10 @@ class PostSingle extends Component {
         </div>
       )
     }
-
-
   }
 }
 
 function mapStateToProps(state, ownProps) {
-  console.log(ownProps);
   return { post: state.post };
 }
 
